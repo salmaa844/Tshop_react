@@ -47,7 +47,7 @@ export default function Navbar() {
               </li>
 
               {userToken ? <li className="nav-item">
-                <Link className="nav-link" to='/cart'>Cart {numcount.count}</Link>
+                <Link className="nav-link" to='/cart'>Cart </Link>
               </li> : null}
 
 
