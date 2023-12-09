@@ -1,0 +1,48 @@
+img{
+ width: 100px;
+ height: 100px;
+}
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+h2{
+    font-size: 20px;
+}
+
+
+
+.rounded-circle {
+    border-radius:0% !important
+}
+
+.swiper{
+    padding: 50px;
+}
+.swiper-button-prev,.swiper-button-next{
+    background-color: #fff;
+    color:black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+.swiper-button-prev:after ,.swiper-button-next:after ,.swiper-rtl .swiper-button-next:after{
+    font-size: 20px;
+}
+
+.swiper-pagination-bullent{
+   background-color: rgb(43, 36, 36);
+
+}
+.swiper-pagination-current{
+    background-color: rgb(13, 120, 187);
+}
+.swiper-custom-pagination{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 30px;
+}
