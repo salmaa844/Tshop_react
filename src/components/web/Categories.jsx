@@ -9,6 +9,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from './context/Cart';
+import { OrderContext } from './context/Order';
 
 
 export default function Categories() {
@@ -22,7 +25,8 @@ export default function Categories() {
    if(isLoading){
     return <p>....Loading </p>
    }
-  
+   const x =useContext(OrderContext);
+   console.log(x);
   return (
 
     <div className='container'>

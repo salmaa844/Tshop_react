@@ -5,14 +5,15 @@ import { UserContext } from './context/User.jsx';
 import {CartContext} from './context/Cart.jsx';
 export default function Navbar() {
 
-  let { userToken ,setUserToken,userData,setUserData,getCartContext} = useContext(UserContext);
-  let{numcount,setCount} =useContext(CartContext);
+  let { userToken ,setUserToken,userData,setUserData} = useContext(UserContext);
+  const {count} = useContext(CartContext);
+  console.log(count);
   const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem('userToken');
     setUserToken(null);
     setUserData(null);
-    setCount(0);
+    
     navigate('/');
   }
 
@@ -47,7 +48,9 @@ export default function Navbar() {
               </li>
 
               {userToken ? <li className="nav-item">
-                <Link className="nav-link" to='/cart'>Cart </Link>
+                <Link className="nav-link" to='/cart'>Cart  
+                    <span class="badge  bg-secondary" style={{marginLeft:'10px'}}>{count}</span>
+               </Link>
               </li> : null}
 
 

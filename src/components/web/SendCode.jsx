@@ -17,8 +17,7 @@ export default function SendCode() {
     const onSubmit= async users=>{
             const {data} = await axios.patch(`https://ecommerce-node4.vercel.app/auth/sendcode`,users);
             if(data.message == 'success'){
-                localStorage.setItem("userToken",data.token);
-                setUserToken(data.token);
+                
                 toast.success('code send succesful',{
                     position: "top-right",
                     autoClose: false,

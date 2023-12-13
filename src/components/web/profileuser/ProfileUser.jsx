@@ -1,25 +1,30 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/User.jsx';
-
+import style from './ProfileUser.module.css';
+import { Link, Outlet } from 'react-router-dom';
 export default function ProfileUser() {
-    let { userData,setUserData} = useContext(UserContext);
+    const {userData,loading} = useContext(UserContext);
+    console.log(userData);
+    if(loading){
+      return <p> Loading....</p>
+    }
   return (
-    <div className="container mt-5">
-  <div className="row d-flex justify-content-center">
-    <div className="col-md-7">
-      <div className="card p-3 py-4">
-        <div className="text-center">
-          <img src={userData!=null?userData.image.secure_url:" "} width={100} className="rounded-bottom-circle" />
-        </div>
-        <div className="text-center mt-3">
-          <h5 className="mt-2 mb-0">{userData!=null?userData.userName:'name of Account'}</h5>
-          <span>{userData!=null?userData.email:'Email of account'}</span>
+          <aside className={style.profile}>
+            <div className={style.profileLinks}>
+                  <nav>
+                    <Link to=''>info</Link>
+                    <Link to='contact'>contact</Link>
+                    <Link to=''>order</Link>
+                  </nav>
+            </div>
+            <div className={style.userData}>
+              <Outlet/>
+            </div>
+           
+          </aside>
           
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          
+       
 
   )
 }

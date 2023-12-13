@@ -18,7 +18,7 @@ import { CartContext } from '../context/Cart.jsx';
   }
   const addToCart = async(productId)=>{
    const res = await addToCartContext(productId);
-   //console.log(res);
+   console.log(res);
   }
 
 

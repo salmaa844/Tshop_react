@@ -1,9 +1,12 @@
 .cart{
-    padding:20px 0 60px 0;
+    padding:80px 0 60px 0;
 
 
 }
-
+.row input{
+   
+    border: 1px solid var(--neutral-04100, #6C7275);
+}
 
 .cart-items{
     display: flex;
@@ -11,6 +14,7 @@
 
 
 }
+
 .cart-header{
     display: flex;
     justify-content: space-around;
@@ -167,7 +171,7 @@ font-size:20px;
 .cart .row:last-of-type{
     flex-direction: column;
     align-items: flex-start;
-    gap:10px;
+    gap: 27px;
 }
 
 

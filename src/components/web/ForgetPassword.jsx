@@ -5,17 +5,31 @@ import{ForgetpassSchema} from '../web/validate.js'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './context/User.jsx';
+import { toast } from 'react-toastify';
 export default function ForgetPassword() {
-    let {setUserToken} = useContext(UserContext);
+   
     const navigate = useNavigate();
     const initialValues={
+        code:'',
         email:'',
-        password:'',
-        code:''
+        password:''    
     };
     const onSubmit= async users=>{
-            const {data} = await axios.post(`https://ecommerce-node4.vercel.app/auth/forgotPassword`, users);
-            //console.log(data);
+            const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/auth/forgotPassword`, users);
+            if(data.message == 'success'){
+
+                toast.success('Password updated',{
+                    position: "top-right",
+                    autoClose: false,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    });
+                    navigate('/login');
+            }
     };
 
     

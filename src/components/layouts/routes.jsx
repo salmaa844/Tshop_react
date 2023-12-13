@@ -13,6 +13,10 @@ import Auth from "../web/protected/Auth.jsx";
 import ProfileUser from "../web/profileuser/ProfileUser.jsx";
 import SendCode from "../web/SendCode.jsx";
 import ForgetPassword from "../web/ForgetPassword.jsx";
+import Userinfo from "../web/profileuser/Userinfo.jsx";
+import UserContact from "../web/profileuser/Usercontact.jsx";
+import { OrderContextProvider } from "../web/context/Order.jsx";
+import Order from '../web/order/Order.jsx'
 
 export const router = createBrowserRouter([
     {
@@ -46,7 +50,20 @@ export const router = createBrowserRouter([
           {
             path:'profile',
             element:
+            <Protected>
               <ProfileUser />
+            </Protected>,
+            children:[
+              {
+               index:true,
+                element:<Userinfo />
+              },
+              {
+                path:'contact',
+                element:<UserContact />
+              }
+
+            ]
           },
           {
             index:true,
@@ -55,10 +72,16 @@ export const router = createBrowserRouter([
           {
             path:'cart',
             element:
-            < Protected>
+            <OrderContextProvider>
+              < Protected>
               <Cart />
             </ Protected>
+            </OrderContextProvider>
             
+            
+          },{
+            path:'order',
+            element:<Order/>
           },
           {
             path:'categories',
