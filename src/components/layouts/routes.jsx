@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             element:
             
               <SendCode/>
-           
+
           },{
             path:'forgetpassword',
             element:
