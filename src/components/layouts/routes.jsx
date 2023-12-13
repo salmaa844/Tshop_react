@@ -13,7 +13,7 @@ import Auth from "../web/protected/Auth.jsx";
 import ProfileUser from "../web/profileuser/ProfileUser.jsx";
 import SendCode from "../web/SendCode.jsx";
 import ForgetPassword from "../web/ForgetPassword.jsx";
-import Userinfo from "../web/profileuser/Userinfo.jsx";
+import Userinfo from '../web/profileuser/UserInfo.jsx'
 import UserContact from "../web/profileuser/Usercontact.jsx";
 import { OrderContextProvider } from "../web/context/Order.jsx";
 import Order from '../web/order/Order.jsx'
@@ -54,6 +54,7 @@ export const router = createBrowserRouter([
               <ProfileUser />
             </Protected>,
             children:[
+
               {
                index:true,
                 element:<Userinfo />
