@@ -3,7 +3,7 @@ import './order.css';
 
 import { CartContext } from '../context/Cart.jsx';
 import { useQuery } from 'react-query';
-import OrderInput from './../../page/orderinput.jsx';
+import OrderInput from './../../page/OrderInput.jsx';
 import { useFormik } from 'formik';
 
 import axios from 'axios';
