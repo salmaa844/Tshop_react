@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import './order.css';
-import { useNavigate } from 'react-router-dom';
+
 import { CartContext } from '../context/Cart.jsx';
 import { useQuery } from 'react-query';
-import OrderInput from '../../page/orderinput.jsx';
+import OrderInput from './../../page/OrderInput.jsx';
 import { useFormik } from 'formik';
-import { OrderContext } from '../context/Order.jsx';
+
 import axios from 'axios';
 import { ordervalidationSchema } from '../validate.js';
 export default function Order() {
