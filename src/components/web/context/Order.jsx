@@ -1,5 +1,5 @@
 import  { createContext, useState } from 'react'
-
+import axios from 'axios';
 export const OrderContext = createContext(null);
 
 export function OrderContextProvider({children}) {
@@ -9,9 +9,9 @@ export function OrderContextProvider({children}) {
   const addToOrder = async(users)=>{
     try{
       const token = localStorage.getItem("userToken");
-      const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/order`,
-
+      const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/order`,users,
       {headers:{Authorization:`Tariq__${token}`}});
+      setUserData(data.users);
       if(data.message == 'success'){
         toast.success('add order',{
           position: "top-right",
@@ -38,7 +38,7 @@ export function OrderContextProvider({children}) {
       const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/order`,
       {headers:{Authorization:`Tariq__${token}`}}
       );
-      setUserData(data.user);
+      
       setLoading(false);
       return data;
 

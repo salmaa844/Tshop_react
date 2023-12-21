@@ -25,6 +25,6 @@ export  const  ForgetpassSchema = yup.object({
 } )
 
 export  const  ordervalidationSchema = yup.object({
-    address:yup.string().required("address is required ").min(3,"must bt al least 3 char").max(30," max is 30 char"),
-    phone:yup.string().required("phone is required ").length(9,"just 9 number"),
+    address:yup.string().required("address is required "),
+    phone:yup.number().required("phone is required ").positive("phone can't minus").min(9),
 } )

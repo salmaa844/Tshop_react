@@ -15,8 +15,7 @@ export default function UserOrder() {
     }
   return (
               <div className={style.userData}>
-              <h2>{userData.phone}</h2>
-            
+              
               </div>
   )
 }

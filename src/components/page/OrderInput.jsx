@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function OrderInput({type='text',id,name,title,value,onBlur,touched,onChange,errors}) {
-  console.log(touched)
   
   return (
    <>

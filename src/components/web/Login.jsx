@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './context/User.jsx';
 import { Link } from 'react-router-dom';
+import { colors } from '@mui/joy';
 
 export default function Login() {
     let {setUserToken} = useContext(UserContext);
@@ -75,17 +76,19 @@ export default function Login() {
     return (
         
         <>
-            <div className='container'>
-                <h2> Login </h2>
+            <div className='container '>
+                <h2 className=' d-flex justify-content-center m-5' style={{color:'#f72'}}>  Login </h2>
                 <form onSubmit={formik.handleSubmit}>
                    {renderInputs}
-                   <Link to={'/sendcode'}>forget password?</Link><br/>
-                   <button type='submit' disabled ={ !formik.isValid }>Login</button>
                    
+
+                   <button type='submit' disabled ={ !formik.isValid }className='d-flex justify-content-center mx-auto' style={{width: '40%',color:'#f72'}}>Login</button>
+                   <Link className=' link-underline-light d-flex justify-content-center m-3' to={'/sendcode'}style={{color:'#f72'}}>forget password?</Link>
                 </form>
                 
             </div>
 
+            
         </>
 
 

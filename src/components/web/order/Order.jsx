@@ -3,11 +3,12 @@ import './order.css';
 
 import { CartContext } from '../context/Cart.jsx';
 import { useQuery } from 'react-query';
-import OrderInput from './../../page/OrderInput.jsx';
+import OrderInput from '../../page/orderinput.jsx';
 import { useFormik } from 'formik';
 
 import axios from 'axios';
 import { ordervalidationSchema } from '../validate.js';
+import { OrderContext } from '../context/Order.jsx';
 export default function Order() {
     
     const initialValues= {
@@ -15,24 +16,11 @@ export default function Order() {
         address: '',
         couponName: ''
     };
-    const onSubmit= async users=>{
-       
-        const {data} = await axios.post(`https://ecommerce-node4.vercel.app/order`,users);
-        console.log(users);
-        if(data.message == 'success'){
-            toast.success('add order succesful',{
-                position: "top-right",
-                autoClose: false,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                });
-               
-            }
-    };
+    const { addToOrder } = useContext(OrderContext);
+    const onSubmit  = async (users) => {
+        const res = await addToOrder();
+        return res;
+    }
     const formik = useFormik({
         
         initialValues,
@@ -40,12 +28,7 @@ export default function Order() {
         validationSchema: ordervalidationSchema
        
     });
-
-    const addtoorder =async () => {
-        
-        console.log('hloooooooo');
-      }
-
+    
     const { getCartContext } = useContext(CartContext);
 
     const getCart = async () => {
@@ -84,7 +67,7 @@ export default function Order() {
         }
 
     ];
-    const renderInput = inputs.map((input, index) =>
+    const orderInput = inputs.map((input, index) =>
         <OrderInput type={input.type}
             key={index}
             name={input.name}
@@ -123,9 +106,9 @@ export default function Order() {
                         <h2>Cart is empty</h2>
                     )}
                 </div>
-                {renderInput}
+                {orderInput}
                 
-                <button type='submit' disabled ={!formik.isValid } onClick={addtoorder}> add order </button>
+                <button type='submit' disabled ={!formik.isValid } > add order </button>
                 <h2>Have a coupon ?</h2>
                 <p>Add your code for an instant cart discount</p>
                 <div className="coupon-form">
