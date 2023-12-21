@@ -3,7 +3,7 @@ import './order.css';
 
 import { CartContext } from '../context/Cart.jsx';
 import { useQuery } from 'react-query';
-import OrderInput from '../../page/orderinput.jsx';
+import OrderInput from './../../page/orderinput.jsx';
 import { useFormik } from 'formik';
 
 import axios from 'axios';
@@ -28,7 +28,7 @@ export default function Order() {
         validationSchema: ordervalidationSchema
        
     });
-    
+
     const { getCartContext } = useContext(CartContext);
 
     const getCart = async () => {
