@@ -1,0 +1,28 @@
+.carousel-item img{
+    width: 325px;
+    height: 325px;
+}
+ .product img {
+    width: 144px;
+    height: 144px;
+}
+.pro{
+    
+    margin-top:50px;
+}
+.css-6e7lq1-JoyAspectRatio-content [data-first-child] {
+    width: 50%;
+    height: 100%;
+}
+.btn-outline-secondary {
+    --bs-btn-color: orange;}
+    
+
+.btn:hover {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #6c757d;
+}
+Link {
+    text-decoration:none;
+}

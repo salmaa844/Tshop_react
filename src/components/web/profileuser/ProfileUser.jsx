@@ -14,7 +14,7 @@ export default function ProfileUser() {
                   <nav>
                     <Link to=''>info</Link>
                     <Link to='contact'>contact</Link>
-                    <Link to=''>order</Link>
+                    <Link to='order'>order</Link>
                   </nav>
             </div>
             <div className={style.userData}>

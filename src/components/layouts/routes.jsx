@@ -6,7 +6,7 @@ import Login from "../web/Login.jsx";
 import Product from "../web/products/Product.jsx";
 import Layout from "./Layout.jsx";
 import Register from "../web/Regester.jsx";
-import { CartContextProvider } from "../web/context/Cart.jsx";
+
 import Cart from "../web/cart/Cart.jsx";
 import Protected from "../web/protected/Protected.jsx";
 import Auth from "../web/protected/Auth.jsx";
@@ -17,6 +17,8 @@ import Userinfo from '../web/profileuser/UserInfo.jsx'
 import UserContact from '../web/profileuser/UserContact.jsx'
 import { OrderContextProvider } from "../web/context/Order.jsx";
 import Order from '../web/order/Order.jsx'
+import UserOrder from "../web/profileuser/UserOrder.jsx";
+import Products from "../web/products/Products.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +35,9 @@ export const router = createBrowserRouter([
             <Auth>
               <Login />
             </Auth>
+          },{
+            path:'order',
+            element:<Order/>
           },
           {
             path:'sendcode',
@@ -62,6 +67,11 @@ export const router = createBrowserRouter([
               {
                 path:'contact',
                 element:<UserContact />
+              },
+              {
+                path:'order',
+                element:<UserOrder />,
+                
               }
 
             ]
@@ -94,6 +104,9 @@ export const router = createBrowserRouter([
           },{
             path:'product/:productId',
             element:<Product />
+          },{
+            path:'products',
+            element:<Products />
           },
           {
             path:'*',

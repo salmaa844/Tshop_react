@@ -39,12 +39,12 @@ export default function Navbar() {
 
 
               <li className="nav-item">
-                <a className="nav-link" href="#">Categories</a>
+                <Link className="nav-link" to='products/category/:categoryId'>Categories</Link>
               </li>
 
 
               <li className="nav-item">
-                <a className="nav-link" href="#">Products</a>
+                <Link className="nav-link" to='products'>Products</Link>
               </li>
 
               {userToken ? <li className="nav-item">

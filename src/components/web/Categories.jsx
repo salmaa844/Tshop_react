@@ -10,14 +10,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { CartContext } from './context/Cart';
-import { OrderContext } from './context/Order';
+import { CartContext } from './context/Cart.jsx';
+import { OrderContext } from './context/Order.jsx';
 
 
 export default function Categories() {
 
   const getCategories = async()=>{
-    const {data} =await axios.get(`${import.meta.env.VITE_API_URL}/categories/active?limit=7`);
+    const {data} =await axios.get(`${import.meta.env.VITE_API_URL}/categories/active?limit=9`);
     return data;
   }
   const {data,isLoading} = useQuery('web_categories',getCategories);
@@ -29,7 +29,7 @@ export default function Categories() {
    console.log(x);
   return (
 
-    <div className='container'>
+    <div className='container bg-secondary-subtle'>
         <div className='swiper-custom-pagination'></div>
 
     <Swiper
@@ -52,8 +52,7 @@ export default function Categories() {
     >
      {data ?.categories.length ? data ?.categories.map( (category)=>
      <SwiperSlide key={category._id}>
-       
-        <div className='category'>
+        <div className='category '>
         <Link to={`/products/category/${category._id}`}>
         <img src={category.image.secure_url} className='rounded-circle'/>
         </Link>

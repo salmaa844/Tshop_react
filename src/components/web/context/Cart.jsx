@@ -108,6 +108,7 @@ export function CartContextProvider({children}){
       console.log(e);
     }
   }
+  
 
   return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,clearcart,setCount,incraseQuantityContext,decraseQuantityContext }}>
         {children}
